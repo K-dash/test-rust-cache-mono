@@ -1,7 +1,7 @@
 name: Rust CI
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - "project_rust/**"
   pull_request:
