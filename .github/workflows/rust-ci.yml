@@ -22,9 +22,9 @@ jobs:
 
       - name: Cache dependencies
         uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: |
-            project_rust -> target
+        # with:
+        #   workspaces: |
+        #     project_rust -> target
 
       - name: Install Rust toolchain
         run: |
