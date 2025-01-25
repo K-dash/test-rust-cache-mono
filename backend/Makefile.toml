@@ -1,6 +1,3 @@
-[config]
-default_to_workspace = false
-
 [env]
 
 [tasks.before-build]
@@ -42,7 +39,6 @@ command = "cargo"
 args = [
     "nextest",
     "run",
-    "--workspace",
     "--status-level",
     "all",
     "--test-threads=1",
@@ -55,4 +51,11 @@ args = ["clippy", "--", "--no-deps", "-Dwarnings"]
 
 [tasks.test-ci]
 dependencies = ["before-build"]
-run_task = "test"
+command = "cargo"
+args = [
+    "nextest",
+    "run",
+    "--profile", "ci",
+    "all",
+    "--locked"
+]
