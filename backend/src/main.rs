@@ -24,7 +24,7 @@ async fn main() -> Result<(), Error> {
     let resp = reqwest::get(url).await?;
     let post: Post = resp.json().await?;
     println!(
-        "Fetched post: {} {} {} {}",
+        "Fetched post : {} {} {} {}",
         post.user_id, post.id, post.title, post.body
     );
 
