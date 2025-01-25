@@ -50,12 +50,14 @@ command = "cargo"
 args = ["clippy", "--", "--no-deps", "-Dwarnings"]
 
 [tasks.test-ci]
-dependencies = ["before-build"]
+install_crate = { crate_name = "cargo-nextest", binary = "cargo", test_arg = [
+    "nextest",
+    "--help",
+] }
 command = "cargo"
 args = [
     "nextest",
     "run",
-    "--profile", "ci",
+    "--cargo-profile", "ci",
     "all",
-    "--locked"
 ]
