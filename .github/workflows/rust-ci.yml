@@ -3,15 +3,15 @@ on:
   push:
     branches: [main]
     paths:
-      - "project_rust/**"
+      - "backend/**"
   pull_request:
     paths:
-      - "project_rust/**"
+      - "backend/**"
 
 defaults:
   run:
     shell: bash
-    working-directory: project_rust
+    working-directory: backend
 
 jobs:
   check:
@@ -24,7 +24,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
         # with:
         #   workspaces: |
-        #     project_rust -> target
+        #     backend -> target
 
       - name: Install Rust toolchain
         run: |
